@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup]="formulario">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" formControlName="nome"> 
+
+        <label for="cpf">CPF</label>
+        <input type="number" id="cpf" formControlName="cpf">
+
+        <label for="data">Data de Nascimento</label>
+        <input type="date" id="data" formControlName="data">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+
+        <label for="cep">CEP</label>
+        <input type="number" id="cep" formControlName="cep" (blur)="buscarEnderecoPorCEP()">
+
+        <label for="logradouro">Logradouro</label>
+        <input type="text" id="logradouro" formControlName="logradouro" readonly>
+
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" formControlName="bairro" readonly>
+
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" formControlName="cidade" readonly>
+
+        <label for="estado">Estado</label>
+        <input type="text" id="estado" formControlName="estado" readonly>
+
+        <button type="button" (click)="cadastra()">Cadastra</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Idade</th>
+                <th>CPF</th>
+                <th>CEP</th>
+                <th>Logradouro</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pessoa of pessoas">
+                <td>{{pessoa.nome}}</td>
+                <td>{{pessoa.email}}</td>
+                <td>{{pessoa.Idade}}</td>
+                <td>{{pessoa.cpf}}</td>
+                <td>{{pessoa.cep}}</td>
+                <td>{{pessoa.logradouro}}</td>
+                <td>{{pessoa.bairro}}</td>
+                <td>{{pessoa.cidade}}</td>
+                <td>{{pessoa.estado}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
+
